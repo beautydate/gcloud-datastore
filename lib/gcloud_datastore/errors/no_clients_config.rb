@@ -3,7 +3,7 @@ module GcloudDatastore
   module Errors
 
     # This error raised when a client is configured without keyfile
-    class NoClientKeyfile < GcloudDatastoreError
+    class NoClientsConfig < GcloudDatastoreError
 
       def initialize
         super( compose_message( "no_clients_config", {}) )

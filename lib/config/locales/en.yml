@@ -2,6 +2,11 @@ en:
   gcloud_datastore:
     errors:
       messages:
+        blank_in_locale:
+          "can't be blank in %{location}"
+        message_title: "message"
+        summary_title: "summary"
+        resolution_title: "resolution"
         no_client_keyfile:
           message: "No Gcloud keyfile provided for client configuration: :%{name}."
           summary: "Each client configuration must provide a database so Gcloud Datastore
