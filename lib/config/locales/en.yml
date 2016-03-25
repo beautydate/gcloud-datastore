@@ -1,0 +1,70 @@
+en:
+  gcloud_datastore:
+    errors:
+      messages:
+        no_client_keyfile:
+          message: "No Gcloud keyfile provided for client configuration: :%{name}."
+          summary: "Each client configuration must provide a database so Gcloud Datastore
+            knows where the default database to persist to. What was provided
+            was: %{config}."
+          resolution: "If configuring via a gcloud_datastore.yml, ensure that within
+            your :%{name} section a :keyfile value for the client's default
+            database is defined.\n\n
+            Example:\n
+            \_\_development:\n
+            \_\_\_\_clients:\n
+            \_\_\_\_\_\_%{name}:\n
+            \_\_\_\_\_\_\_\_project: millennium_falcon\n
+            \_\_\_\_\_\_\_\_keyfile: gcloud_millennium_falcon.json\n\n"
+        no_client_project:
+          message: "No database provided for client configuration: :%{name}."
+          summary: "Each client configuration must provide a database so Gcloud Datastore
+            knows where the default database to persist to. What was provided
+            was: %{config}."
+          resolution: "If configuring via a gcloud_datastore.yml, ensure that within
+            your :%{name} section a :database value for the client's default
+            database is defined.\n\n
+            Example:\n
+            \_\_development:\n
+            \_\_\_\_clients:\n
+            \_\_\_\_\_\_%{name}:\n
+            \_\_\_\_\_\_\_\_project: millennium_falcon\n
+            \_\_\_\_\_\_\_\_keyfile: gcloud_millennium_falcon.json\n\n"
+        no_clients_config:
+          message: "No clients configuration provided."
+          summary: "Gcloud Datastore configuration requires that you provide details
+            about each client that can be connected to, and requires in
+            the clients config at least 1 default client to exist."
+          resolution: "Double check your gcloud_datastore.yml to make sure that you
+            have a top-level clients key with at least 1 default client
+            configuration for it. You can regenerate a new gcloud_datastore.yml for
+            assistance via `rails g gcloud_datastore:config`.\n\n
+            Example:\n
+            \_\_development:\n
+            \_\_\_\_clients:\n
+            \_\_\_\_\_\_default:\n
+            \_\_\_\_\_\_\_\_project: millennium_falcon\n
+            \_\_\_\_\_\_\_\_keyfile: gcloud_millennium_falcon.json\n\n"
+        no_default_client:
+          message: "No default client configuration is defined."
+          summary: "The configuration provided settings for: %{keys}, but
+            Gcloud Datastore requires a :default to be defined at minimum."
+          resolution: "If configuring via a gcloud_datastore.yml, ensure that within
+            your :clients section a :default client is defined.\n\n
+            Example:\n
+            \_\_development:\n
+            \_\_\_\_clients:\n
+            \_\_\_\_\_\_default:\n
+            \_\_\_\_\_\_\_\_project: millennium_falcon\n
+            \_\_\_\_\_\_\_\_keyfile: gcloud_millennium_falcon.json\n\n"
+        no_environment:
+          message: "Could not load the configuration since no environment
+            was defined."
+          summary: "Gcloud Datastore attempted to find the appropriate environment
+            but no Rails.env, Sinatra::Base.environment, RACK_ENV, or
+            GCLOUDDATASTORE_ENV could be found."
+          resolution: "Make sure some environment is set from the mentioned
+            options. Gcloud Datastore cannot load configuration from the yaml without
+            knowing which environment it is in, and we have considered
+            defaulting to development an undesireable side effect of this not
+            being defined."
