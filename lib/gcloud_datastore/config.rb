@@ -7,6 +7,7 @@ module GcloudDatastore
 
   # This module defines all the configuration options.
   module Config
+    extend self
     extend Options
 
     LOCK = Mutex.new
@@ -58,7 +59,6 @@ module GcloudDatastore
       configuration = settings.with_indifferent_access
       self.options = configuration[:options]
       self.clients = configuration[:clients]
-      set_log_levels
     end
 
     # Set the configuration options.

@@ -16,9 +16,8 @@ module GcloudDatastore
             raise Errors::NoDefaultClient.new(clients.keys)
           end
           clients.each_pair do |name, config|
-            validate_client_database(name, config)
-            validate_client_hosts(name, config)
-            validate_client_uri(name, config)
+            validate_client_project(name, config)
+            validate_client_keyfile(name, config)
           end
         end
 
