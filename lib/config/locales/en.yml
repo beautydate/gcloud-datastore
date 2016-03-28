@@ -7,6 +7,23 @@ en:
         message_title: "message"
         summary_title: "summary"
         resolution_title: "resolution"
+        invalid_config_option:
+          message: "Invalid configuration option: %{name}."
+          summary: "A invalid configuration option was provided in your
+            gcloud_datastore.yml, or a typo is potentially present. The valid configuration
+            options are: %{options}."
+          resolution: "Remove the invalid option or fix the typo. If you were
+            expecting the option to be there.\n\n"
+        no_client_config:
+          message: "No configuration could be found for a client named
+            '%{name}'."
+          summary: "When attempting to create the new client, Gcloud Datastore could
+            not find a client configuration for the name: '%{name}'. This is
+            necessary in order to know the project and keyfile."
+          resolution: "Double check your gcloud_datastore.yml to make sure under the
+            clients key that a configuration exists for '%{name}'. If you
+            have set the configuration programatically, ensure that '%{name}'
+            exists in the configuration hash."
         no_client_keyfile:
           message: "No Gcloud keyfile provided for client configuration: :%{name}."
           summary: "Each client configuration must provide a database so Gcloud Datastore
